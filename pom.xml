@@ -77,7 +77,7 @@
                 <configuration>
                     <nodeVersion>v12.16.0</nodeVersion>
                     <npmVersion>6.3.0</npmVersion>
-                    <workingDirectory>angular-ui</workingDirectory>
+                    <workingDirectory>wh40k-helper-ui</workingDirectory>
                 </configuration>
                 <executions>
                     <execution>
@@ -135,7 +135,7 @@
                             <outputDirectory>${basedir}/src/main/resources/public</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${basedir}/angular-ui/dist/angular-ui</directory>
+                                    <directory>${basedir}/wh40k-helper-ui/dist/wh40k-helper-ui</directory>
                                     <filtering>true</filtering>
                                 </resource>
                             </resources>
