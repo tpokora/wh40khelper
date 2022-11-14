@@ -4,6 +4,7 @@ import {GameComponent} from "./game.component";
 import {PlayersModule} from "./players/players.module";
 import {RoundsModule} from "./rounds/rounds.module";
 import {GameRoutingModule} from "./game-routing.module";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [GameComponent],
@@ -11,7 +12,8 @@ import {GameRoutingModule} from "./game-routing.module";
     CommonModule,
     GameRoutingModule,
     PlayersModule,
-    RoundsModule
+    RoundsModule,
+    MatGridListModule,
   ],
   exports: [GameComponent],
   providers: [],

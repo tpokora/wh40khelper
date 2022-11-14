@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-players',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayersComponent implements OnInit {
 
+  playersForm = new FormGroup({
+    playerOneName: new FormControl('', [Validators.required]),
+    playerOneCp: new FormControl('', [Validators.required]),
+    playerTwoName: new FormControl('', [Validators.required]),
+    playerTwoCp: new FormControl('', [Validators.required])
+  });
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  get playersFormControl() {
+    return this.playersForm.controls;
   }
 
 }

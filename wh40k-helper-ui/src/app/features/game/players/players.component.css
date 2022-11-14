@@ -1,0 +1,21 @@
+.players-card {
+  width: 500px;
+}
+.players-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.player-name-input {
+  width: 400px;
+}
+
+.player-cp-input {
+  width: 90px;
+  margin-left: 2px;
+}
+
+.full-width {
+  width: 100%;
+}
