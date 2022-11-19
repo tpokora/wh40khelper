@@ -6,14 +6,14 @@
     <form class="players-form" [formGroup]="playersForm">
       <mat-form-field class="player-name-input" appearance="fill">
         <mat-label>Player #1</mat-label>
-        <input matInput formControlName="playerOneName" placeholder="Player name...">
+        <input id="player-one-name" matInput formControlName="playerOneName" placeholder="Player name...">
         <mat-error *ngIf="playersFormControl.playerOneName.hasError('required')">
           Player name is <strong>required</strong>
         </mat-error>
       </mat-form-field>
       <mat-form-field class="player-cp-input" appearance="fill">
         <mat-label>CP</mat-label>
-        <input matInput formControlName="playerOneCp" placeholder="CP">
+        <input id="player-one-cp" matInput formControlName="playerOneCp" placeholder="CP">
         <mat-error *ngIf="playersFormControl.playerOneCp.hasError('required')">
           CP name is <strong>required</strong>
         </mat-error>
@@ -23,14 +23,14 @@
 
       <mat-form-field class="player-name-input" appearance="fill">
         <mat-label>Player #2</mat-label>
-        <input matInput formControlName="playerTwoName" placeholder="Player name...">
+        <input id="player-two-name" matInput formControlName="playerTwoName" placeholder="Player name...">
         <mat-error *ngIf="playersFormControl.playerTwoName.hasError('required')">
           Player name is <strong>required</strong>
         </mat-error>
       </mat-form-field>
       <mat-form-field class="player-cp-input" appearance="fill">
         <mat-label>CP</mat-label>
-        <input matInput formControlName="playerTwoCp" placeholder="CP">
+        <input id="player-two-cp" matInput formControlName="playerTwoCp" placeholder="CP">
         <mat-error *ngIf="playersFormControl.playerTwoCp.hasError('required')">
           CP is <strong>required</strong>
         </mat-error>
