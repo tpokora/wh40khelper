@@ -1,0 +1,21 @@
+.rounds-card {
+  width: 500px;
+}
+.rounds-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.rounds-name-input {
+  width: 400px;
+}
+
+.rounds-cp-input {
+  width: 90px;
+  margin-left: 2px;
+}
+
+.full-width {
+  width: 100%;
+}
