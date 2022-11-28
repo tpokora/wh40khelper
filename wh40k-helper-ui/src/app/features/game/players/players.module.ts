@@ -6,6 +6,9 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatListModule} from "@angular/material/list";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [PlayersComponent],
@@ -15,7 +18,10 @@ import {MatDividerModule} from "@angular/material/divider";
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDividerModule
+    MatButtonModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatListModule,
   ],
   exports: [PlayersComponent],
 })

@@ -16,6 +16,10 @@
   margin-left: 2px;
 }
 
+.player-secondaries > mat-expansion-panel {
+  width: 300px;
+}
+
 .full-width {
   width: 100%;
 }

@@ -3,40 +3,65 @@
     Players
   </mat-card-title>
   <mat-card-content>
-    <form class="players-form" [formGroup]="playersForm">
+    <div id="player-one-form" *ngIf="!playerOne">
+      <form class="players-form" [formGroup]="playerOneForm">
+        <mat-form-field class="player-name-input" appearance="fill">
+          <mat-label>Player #1</mat-label>
+          <input id="player-one-name" matInput formControlName="name" placeholder="Player name...">
+          <mat-error *ngIf="playerOneFormControl.name.hasError('required')">
+            Player name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="player-cp-input" appearance="fill">
+          <mat-label>CP</mat-label>
+          <input id="player-one-cp" matInput formControlName="cp" placeholder="CP">
+          <mat-error *ngIf="playerOneFormControl.cp.hasError('required')">
+            CP name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button mat-button matSuffix mat-stroked-button color="primary" (click)="createPlayerOne()">ADD Player</button>
+      </form>
+    </div>
+    <div id="player-one-section" *ngIf="playerOne">
       <mat-form-field class="player-name-input" appearance="fill">
         <mat-label>Player #1</mat-label>
-        <input id="player-one-name" matInput formControlName="playerOneName" placeholder="Player name...">
-        <mat-error *ngIf="playersFormControl.playerOneName.hasError('required')">
-          Player name is <strong>required</strong>
-        </mat-error>
+        <input matInput value="{{playerOne.name}}" disabled>
       </mat-form-field>
       <mat-form-field class="player-cp-input" appearance="fill">
         <mat-label>CP</mat-label>
-        <input id="player-one-cp" matInput formControlName="playerOneCp" placeholder="CP">
-        <mat-error *ngIf="playersFormControl.playerOneCp.hasError('required')">
-          CP name is <strong>required</strong>
-        </mat-error>
+        <input matInput value="{{playerOne.cp}}" disabled>
       </mat-form-field>
+    </div>
 
-      <mat-divider></mat-divider>
-
+    <mat-divider></mat-divider>
+    <div id="player-two-form" *ngIf="!playerTwo">
+      <form class="players-form" [formGroup]="playerTwoForm">
+        <mat-form-field class="player-name-input" appearance="fill">
+          <mat-label>Player #2</mat-label>
+          <input id="player-two-name" matInput formControlName="name" placeholder="Player name...">
+          <mat-error *ngIf="playerTwoFormControl.name.hasError('required')">
+            Player name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="player-cp-input" appearance="fill">
+          <mat-label>CP</mat-label>
+          <input id="player-two-cp" matInput formControlName="cp" placeholder="CP">
+          <mat-error *ngIf="playerTwoFormControl.cp.hasError('required')">
+            CP name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button mat-button matSuffix mat-stroked-button color="primary" (click)="createPlayerTwo()">ADD Player</button>
+      </form>
+    </div>
+    <div id="player-two-section" *ngIf="playerTwo">
       <mat-form-field class="player-name-input" appearance="fill">
         <mat-label>Player #2</mat-label>
-        <input id="player-two-name" matInput formControlName="playerTwoName" placeholder="Player name...">
-        <mat-error *ngIf="playersFormControl.playerTwoName.hasError('required')">
-          Player name is <strong>required</strong>
-        </mat-error>
+        <input matInput value="{{playerTwo.name}}" disabled>
       </mat-form-field>
       <mat-form-field class="player-cp-input" appearance="fill">
         <mat-label>CP</mat-label>
-        <input id="player-two-cp" matInput formControlName="playerTwoCp" placeholder="CP">
-        <mat-error *ngIf="playersFormControl.playerTwoCp.hasError('required')">
-          CP is <strong>required</strong>
-        </mat-error>
+        <input matInput value="{{playerTwo.cp}}" disabled>
       </mat-form-field>
-
-      <mat-divider></mat-divider>
-    </form>
+    </div>
   </mat-card-content>
 </mat-card>
