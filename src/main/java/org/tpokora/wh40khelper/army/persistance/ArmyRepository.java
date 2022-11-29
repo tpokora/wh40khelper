@@ -5,4 +5,5 @@ import org.tpokora.wh40khelper.army.model.ArmyEntity;
 
 public interface ArmyRepository extends PagingAndSortingRepository<ArmyEntity, Integer> {
 
+    void deleteByName(String name);
 }
