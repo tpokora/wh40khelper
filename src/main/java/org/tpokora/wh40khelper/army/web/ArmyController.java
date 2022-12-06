@@ -41,4 +41,12 @@ public class ArmyController {
         armyService.deleteByName(name);
         return ResponseEntity.status(204).build();
     }
+
+    @PutMapping(value = "/api/army", produces = "application/json")
+    public ResponseEntity<Void> updateArmy(@RequestParam String name, @RequestBody ArmyRequest armyRequest) {
+        var oldArmyEntity = new ArmyEntity(0L, name, null);
+        var newArmyEntity = new ArmyEntity(0L, armyRequest.getName(), armyRequest.getFaction());
+        armyService.updateArmy(oldArmyEntity, newArmyEntity);
+        return ResponseEntity.status(204).build();
+    }
 }

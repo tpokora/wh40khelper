@@ -5,6 +5,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.tpokora.wh40khelper.army.model.ArmyEntity;
 import org.tpokora.wh40khelper.army.persistance.ArmyRepository;
+import org.tpokora.wh40khelper.exception.ItemAlreadyExistsException;
+import org.tpokora.wh40khelper.exception.ItemNotFoundException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,5 +29,23 @@ public class ArmyService {
 
     public void deleteByName(String name) {
         armyRepository.deleteByName(name);
+    }
+
+    public ArmyEntity updateArmy(ArmyEntity oldArmyEntity, ArmyEntity newArmyEntity) {
+        newArmyEntity = setNewArmyEntityId(oldArmyEntity, newArmyEntity);
+        checkIfArmyAlreadyExists(newArmyEntity);
+        return this.armyRepository.save(newArmyEntity);
+    }
+
+    private ArmyEntity setNewArmyEntityId(ArmyEntity oldArmyEntity, ArmyEntity newArmyEntity) {
+        var oldArmyId = this.armyRepository.findByName(oldArmyEntity.getName())
+                .orElseThrow(ItemNotFoundException::new).getId();
+        return new ArmyEntity(oldArmyId, newArmyEntity.getName(), newArmyEntity.getFaction());
+    }
+
+    private void checkIfArmyAlreadyExists(ArmyEntity armyEntity) {
+        armyRepository.findByName(armyEntity.getName()).ifPresent(s -> {
+            throw new ItemAlreadyExistsException();
+        });
     }
 }

@@ -1,4 +1,4 @@
-package org.tpokora.wh40khelper.rest.exception;
+package org.tpokora.wh40khelper.exception;
 
 import org.springframework.http.HttpStatus;
 
