@@ -24,11 +24,15 @@ public class ArmyService {
     }
 
     public ArmyEntity createArmy(ArmyEntity armyEntity) {
+        checkIfArmyAlreadyExists(armyEntity);
         return armyRepository.save(new ArmyEntity(0L, armyEntity.getName(), armyEntity.getFaction()));
     }
 
     public void deleteByName(String name) {
-        armyRepository.deleteByName(name);
+        armyRepository.deleteByName(
+                armyRepository.findByName(name)
+                        .orElseThrow(ItemNotFoundException::new)
+                        .getName());
     }
 
     public ArmyEntity updateArmy(ArmyEntity oldArmyEntity, ArmyEntity newArmyEntity) {
